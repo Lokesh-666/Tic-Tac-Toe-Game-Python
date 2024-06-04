@@ -40,15 +40,23 @@ def pcPlays(theBoard):
     theBoard[pcPlayed] = 'O'
 
 
-def announceWinner(WhoWon):
+def announceWinnerPlayerVsPC(WhoWon):
     if WhoWon == 'X':
         print("You won!")
     elif WhoWon == 'O':
         print("The pc won!")
     elif WhoWon == None:
         print("It's a tie!")
+
+def announceWinnerPlayerVsPlayerTicTacToe(WhoWon):
+    if WhoWon == 'X':
+        print("Player 1 Won!")
+    elif WhoWon == 'O':
+        print("Player 2 Won!")
+    elif WhoWon == None:
+        print("It's a tie!")
     
-def tic_tac_toe():
+def PlayerVsPc_tic_tac_toe():
     printBoard(theBoard)
     print("Let me play first... ")
     pcPlays(theBoard)
@@ -76,14 +84,49 @@ def tic_tac_toe():
             printBoard(theBoard)
             WhoWon = checkForWin(theBoard)
         i = i + 1
-    announceWinner(WhoWon)
+    announceWinnerPlayerVsPC(WhoWon)
+
+def playerVsPlayerTicTacToe():
+    printBoard(theBoard)
+    WhoWon = None
+    i = 0
+    while(i<=4 and WhoWon== None):
+        print("What does Player 1 wants to play? ")
+        player1 = int(input())
+        if theBoard[str(player1)] ==' ':
+            theBoard[str(player1)] = 'X'
+            printBoard(theBoard)
+        else:
+            print("That spot is already taken. Try again.")
+            continue
+        WhoWon = checkForWin(theBoard)
+        
+        if WhoWon== None and i<=3:
+            while(1):
+                print("What does Player 2 wants to play? ")
+                player2 = int(input())
+                if theBoard[str(player2)] ==' ':
+                    theBoard[str(player2)] = 'O'
+                    printBoard(theBoard)
+                    break
+                else:
+                    print("That spot is already taken. Try again.")
+                    continue
+            WhoWon = checkForWin(theBoard)
+
+    announceWinnerPlayerVsPlayerTicTacToe(WhoWon)
+
 
 def main():
     print("Do you wish to play tic tac toe with pc? (y/n): ")
     answer = input()
-    if answer == "y":
-        tic_tac_toe()
-
+    if answer.lower() == "y":
+        PlayerVsPc_tic_tac_toe()
+    else:
+        print("Okay, do you wish to play against other player? (y/n): ")
+        answer = input()
+        if answer.lower() == "y":
+            playerVsPlayerTicTacToe()
 
 
 if __name__ == '__main__':
