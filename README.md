@@ -1,7 +1,5 @@
 # Tic-Tac-Toe-Game-Python
 
----
-
 This is a simple Tic Tac Toe game implemented in Python. It allows the user to play against the computer.
 
 ## Features
