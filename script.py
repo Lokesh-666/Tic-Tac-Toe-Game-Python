@@ -70,6 +70,8 @@ def tic_tac_toe():
         WhoWon = checkForWin(theBoard)
         
         if WhoWon== None:
+            print("It's the pc's turn now...")
+            time.sleep(5)
             pcPlays(theBoard)
             printBoard(theBoard)
             WhoWon = checkForWin(theBoard)
