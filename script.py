@@ -91,7 +91,7 @@ def playerVsPlayerTicTacToe():
     WhoWon = None
     i = 0
     while(i<=4 and WhoWon== None):
-        print("What does Player 1 wants to play? ")
+        print("Where does Player 1(X) wants to play? ")
         player1 = int(input())
         if theBoard[str(player1)] ==' ':
             theBoard[str(player1)] = 'X'
@@ -103,7 +103,7 @@ def playerVsPlayerTicTacToe():
         
         if WhoWon== None and i<=3:
             while(1):
-                print("What does Player 2 wants to play? ")
+                print("Where does Player 2(O) wants to play? ")
                 player2 = int(input())
                 if theBoard[str(player2)] ==' ':
                     theBoard[str(player2)] = 'O'
